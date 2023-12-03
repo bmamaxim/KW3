@@ -16,18 +16,18 @@ Visa Platinum 7000 79** **** 6361 -> Счет **9638
 
 src: основной код программы
  
-  BD - база данных json
+     BD - база данных json
   
-  main - применение кода и вывод на "экран"
+     main - применение кода и вывод на "экран"
   
-  utils - функции обработки и сортировки данных
+     utils - функции обработки и сортировки данных
   
-  operation - класс "operation" с методами маскировки информации
+     operation - класс "operation" с методами маскировки информации
 
 tests: содержит функции тестов "pytest"
   
-  test_operation - тестирует operation
+    test_operation - тестирует operation
   
-  test_utils - тестирует utils
+    test_utils - тестирует utils
   
-  test_operation.json - тестовая база данных
+    test_operation.json - тестовая база данных
