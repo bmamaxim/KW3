@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class Operation:
     def __init__(self,
                  _id_: int,
@@ -9,12 +12,14 @@ class Operation:
                  _to_: str
                 ):
         self._id_ = id
-        self.state = state
+        self.state = self.display_date(state)
         self.date = date
         self.operation_amount = operation_amount
         self.description = description
-        self._from_ = _from_
-        self._to_ = _to_
+        self._from_ = self.hide_information(_from_)
+        self._to_ = self.hide_information(_to_)
+
+
     def display_date(self, date: str):
         """
         Функция преобразования даты проведения операции
@@ -23,6 +28,8 @@ class Operation:
         :param date: str
         :return: str
         """
+        date = datetime.fromisoformat(date)
+        return date.strftime("%Y %m %d")
 
 
     def hide_information(self, data: str):
@@ -34,6 +41,7 @@ class Operation:
         :param data: str
         :return: str
         """
+
 
     def __str__(self):
         """
