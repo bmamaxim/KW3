@@ -4,12 +4,12 @@ from src.main.operation import Operation
 from src.settings import DATA_PATH
 
 
-def data_base(self):
+def data_base(path: list[dict]) -> list[dict]:
     """
     Функция чтения, преобразования файла,
     из json в json python.
     """
-    with open(DATA_PATH, 'r', encoding='utf-8') as file:
+    with open(path, 'r', encoding='utf-8') as file:
         return json.load(file)
 
 def get_instances(operations: list[dict]) -> list[Operation]:

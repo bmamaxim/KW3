@@ -12,8 +12,8 @@ class Operation:
                  _to_: str
                 ):
         self._id_ = id
-        self.state = self.display_date(state)
-        self.date = date
+        self.state = state
+        self.date = self.display_date(date)
         self.operation_amount = operation_amount
         self.description = description
         self._from_ = self.hide_information(_from_)
