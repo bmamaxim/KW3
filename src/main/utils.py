@@ -12,12 +12,26 @@ def data_base(self):
     with open(DATA_PATH, 'r', encoding='utf-8') as file:
         return json.load(file)
 
-def get_instances(operation: list[dict]) -> list[Operation]:
+def get_instances(operations: list[dict]) -> list[Operation]:
     """
     Функция инициализации экзенпляров класса Operation.
     :param operation: list
     :return: list
     """
+    data_list = []
+    for operation in operations:
+        if operation != {}:
+            data_list.append(Operation(
+                _id_=operation["id"],
+                state=operation["state"],
+                date=operation["date"],
+                operation_amount=operation["operationAmount"],
+                description=operation["description"],
+                _from_=operation.get("_from_", ""),
+                _to_=operation.get("_to_")
+            ))
+    return data_list
+
 
 def executed_filter(data: list[dict]) -> list[dict]:
     """
