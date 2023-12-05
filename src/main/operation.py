@@ -20,7 +20,8 @@ class Operation:
         self._to_ = self.hide_information(_to_)
 
 
-    def display_date(self, date: str):
+    @staticmethod
+    def display_date(date: str):
         """
         Функция преобразования даты проведения операции
         в читаемый удобный формат: год, месяц, число.
@@ -41,6 +42,12 @@ class Operation:
         :param data: str
         :return: str
         """
+        if data:
+            if data.startswith("Счет"):
+                return data[:6] + data[-20:-4] * 'X' + data[-4:]
+            else:
+                return data[:6] + data[-16:-4] * 'X' + data[-4:]
+        return ""
 
 
     def __str__(self):
@@ -48,3 +55,6 @@ class Operation:
         Выводим информацию в необходимом формате.
         :return: data
         """
+        return (f"{self.date[8:]}.{self.date[5:7]}.{self.date[:4]} {self.description}\n"
+                f"{self._from_} -> {self._to_}\n"
+                f"{self.operation_amount['amount']} {self.operation_amount["currency"]['name']}\n")
