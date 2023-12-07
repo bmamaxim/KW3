@@ -16,16 +16,14 @@ class Operation:
         self.date = self.display_date(date)
         self.operation_amount = operation_amount
         self.description = description
-        self._from_ = self.hide_information(_from_)
+        self._from_ = self.hide_information(_from_) if _from_ else ""
         self._to_ = self.hide_information(_to_)
 
 
-    @staticmethod
-    def display_date(date: str):
+    def display_date(self, date: str):
         """
         Функция преобразования даты проведения операции
         в читаемый удобный формат: год, месяц, число.
-        :param self: str
         :param date: str
         :return: str
         """
@@ -38,16 +36,19 @@ class Operation:
         Функция принимает данные:
         from - данные карты клиента маскирует часть информации при выводе на "экран"
         to - данные счета клиеента маскирует часть информации при выводе на "экран".
+        :return:
         :param self: str
         :param data: str
         :return: str
         """
-        if data:
-            if data.startswith("Счет"):
-                return data[:6] + data[-20:-4] * 'X' + data[-4:]
-            else:
-                return data[:6] + data[-16:-4] * 'X' + data[-4:]
-        return ""
+
+        if data.startswith("Счет"):
+            return data[:5] + len(data[5:21]) * "X" + data[-4:]
+        else:
+            return data[:-10] + len(data[-10:-4]) * "X" + data[-4:]
+
+
+
 
 
     def __str__(self):

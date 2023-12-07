@@ -24,5 +24,5 @@ def test_get_instances():
     operations = data_base(data)
     operation = get_instances(operations)
     assert isinstance(operation, list)
-    assert operation[0]._id_ == 441945886
+    assert operation[0] == 441945886
     assert isinstance(operations[0], Operation)

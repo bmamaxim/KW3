@@ -28,8 +28,8 @@ def get_instances(operations: list[dict]) -> list[Operation]:
                 date=operation["date"],
                 operation_amount=operation["operationAmount"],
                 description=operation["description"],
-                _from_=operation.get("_from_", ""),
-                _to_=operation.get("_to_")
+                _from_=operation.get("from", ""),
+                _to_=operation.get("to")
             ))
     return data_list
 
