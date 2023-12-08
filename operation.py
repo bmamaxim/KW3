@@ -58,4 +58,4 @@ class Operation:
         """
         return (f"{self.date[8:]}.{self.date[5:7]}.{self.date[:4]} {self.description}\n"
                 f"{self._from_} -> {self._to_}\n"
-                f"{self.operation_amount['amount']} {self.operation_amount["currency"]['name']}\n")
+                f"{self.operation_amount['amount']} {self.operation_amount['currency']['name']}\n")
