@@ -1,6 +1,6 @@
 import json
 
-from src.main.operation import Operation
+from operation import Operation
 
 
 def data_base(path: list[dict]) -> list[dict]:

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from src.main.utils import data_base, get_instances
+from main import data_base, get_instances
 
 
 def test_hide_information():

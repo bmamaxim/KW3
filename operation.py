@@ -16,7 +16,7 @@ class Operation:
         self.date = self.display_date(date)
         self.operation_amount = operation_amount
         self.description = description
-        self._from_ = self.hide_information(_from_) if _from_ else ""
+        self._from_ = self.hide_information(_from_)
         self._to_ = self.hide_information(_to_)
 
 
@@ -41,12 +41,12 @@ class Operation:
         :param data: str
         :return: str
         """
-
-        if data.startswith("Счет"):
-            return data[:5] + len(data[5:21]) * "X" + data[-4:]
-        else:
-            return data[:-10] + len(data[-10:-4]) * "X" + data[-4:]
-
+        if data:
+            if data.startswith("Счет"):
+                return data[:5] + len(data[5:21]) * "X" + data[-4:]
+            else:
+                return f"{data[:-12]} {data[-12:-10]}{len(data[-10:-8]) * 'X'} {len(data[-8:-4]) * 'X'} {data[-4:]}"
+        return ""
 
 
 

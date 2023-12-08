@@ -1,6 +1,6 @@
 
-from src.main.utils import data_base, get_instances, executed_filter, sorted_date
-from src.settings import DATA_PATH
+from utils import data_base, get_instances, executed_filter, sorted_date
+from settings import DATA_PATH
 
 
 def main():
